@@ -9,7 +9,7 @@ Some welcoming text.
 Nullam quis porttitor purus, eu finibus justo.
 
 ## Data selection
-Duis cursus semper magna, eu eleifend felis ultrices.
+{% include data_selection.html %}
 
 ## Advisory/disclaimer
 Sed tristique placerat iaculis. In faucibus sem eget.
