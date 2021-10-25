@@ -1,3 +1,6 @@
+<!-- Not currently used. -->
+
+<script>
 d3.json('{{ include.datafile }}', function(error, graph) {
   if (error) throw error;
 
@@ -60,6 +63,16 @@ d3.json('{{ include.datafile }}', function(error, graph) {
       .attr('font-weight', '500')
       .text(function(d) { return d.id });
 
+  node_{{ include.svg_id }}
+      .on('mouseover', function (d, i) {
+          d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.85');
+      .on('mouseout', function (d, i) {
+          d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+
   simulation_{{ include.svg_id }}
       .nodes(graph.nodes)
       .on("tick", ticked);
@@ -101,3 +114,4 @@ d3.json('{{ include.datafile }}', function(error, graph) {
     d.fy = null;
   }
 });
+</script>
