@@ -3,71 +3,96 @@ layout: page
 title: Interact
 ---
 
-<div id="scatter_area"></div>
+<div id="deepscatter" style="position:fixed;">
+</div>
 
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
 
-<script>
+<script type = "module">
+  import Scatterplot from './js/deepscatter.es.js';
+  const select = d3.select
+  window.select = select; // For the click function below.
+  const prefs = {
+    "source_url" : "{{ site.feather_files }}",
+    "max_points" : 10000,
+    "alpha" : .7, // Target saturation for the full page.
+    "zoom_balance" : 0.09, // Rate at which points increase size. https://observablehq.com/@bmschmidt/zoom-strategies-for-huge-scatterplots-with-three-js
+    "point_size": 7, // Default point size before application of size scaling
+    "background_color": "#dfe2e8",
+    "encoding": {
+      "color": {
+        field: "states",
+        range: "category10",  // change this to get different color schemes, per https://observablehq.com/@d3/color-schemes
+        domain: [-2047, 2047]
+      },
+      // labels/data/hover aren't working yet
+      // "labels": ["collections", "title", "image_url", "date", "subjects", "url"],
+      "x": {
+        field: "x",
+        transform: "literal"
+      },
+      "y": {
+        field: "y",
+        transform: "literal"
+      }
+    },
+    "tooltip_html": (function(datum) {
+      let image_url = datum["image_url"]
+      let img = ''
+      if (image_url) {
+        img = `<img src="${datum["image_url"]}" alt="photograph of original document">`
+      }
+      let header = `<div class="tooltip header">${datum["collections"].slice(2, -2)}</div>`
+      let title = `<h3 class="tooltip title">${datum["title"]}</h3>`
+      let date = `<div class="tooltip date">${datum['date']} &mdash; <a href='${datum["url"]}'>original</a></div>`
+      let description = `<div class="tooltip description">${datum['description'].slice(2, -2)}</div>`
+      let listdata = '';
+      const labels = [
+        "date", "subjects", "url"
+      ]
 
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 40, bottom: 30, left: 30},
-    width = 450 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+      // What's up with this weird replacement?
+      // When quadfeather writes tiles, it uses single quotes to enclose
+      // key/value pairs, even if the original csv used double quotes. This
+      // makes them invalid JSON. (There's an exception, which is if the key
+      // or value included an apostrophe. In this case quadfeather uses double
+      // quotes to preserve the parse.)
+      // We can't just do a global search/replace to turn ' into ", since some
+      // ' characters are apostrophes and not delimiters.
+      // Therefore, we:
+      // 1) Find everything which is an apostrophe (that is, a ' surrounded by
+      //    letters) and replace it with a placeholder, so it isn't caught up
+      //    in step 2;
+      // 2) Replace all remaining single quotes with double quotes;
+      // 3) Switch the placeholder back to an apostrophe;
+      const reg = /([a-zA-Z]+)'([a-zA-Z]+)/g
+      let subjects = ''
+      try {
+        subjects = JSON.parse(
+          datum['subjects'].replaceAll(reg, "$1!!!!!$2")
+            .replaceAll("'", '"')
+            .replaceAll("!!!!!", "'")
+        )
+      } catch (e) {
+        console.log(datum['subjects'])
+        subjects = 'nah'
+      }
 
-// append the svg object to the body of the page
-var svg = d3.select("#scatter_area")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+      let subjects_html = ''
+      for (const subj of subjects) {
+        // Why is subj an Object and not a dict? Dunno.
+        let key = Object.keys(subj)[0]
+        subjects_html += `<li><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
+      }
+      return `<div class="tooltip container">${header}${title}${date}<div>${description}${img}<ul class="subjects">${subjects_html}</ul></div></div>`;
+     })
+  };
 
-// Create data
-var data = [
-    {x:Math.random()*100, y:Math.random()*100},
-    {x:Math.random()*100, y:Math.random()*100},
-    {x:Math.random()*100, y:Math.random()*100}
-]
+  const colors = [
+    JSON.parse(JSON.stringify(prefs.encoding.color))
+  ]
 
-// X scale and Axis
-var x = d3.scaleLinear()
-    .domain([0, 100])         // This is the min and the max of the data
-    .range([0, width]);       // This is the corresponding value I want in Pixel
-
-// X scale and Axis
-var y = d3.scaleLinear()
-    .domain([0, 100])         // This is the min and the max of the data
-    .range([height, 0]);       // This is the corresponding value I want in Pixel
-
-svg
-  .selectAll()
-  .data(data)
-  .enter()
-  .append("circle")
-    .attr("cx", function(d){ return x(d.x) })
-    .attr("cy", function(d){ return y(d.y) })
-    .attr("r", 7)
-
-svg.selectAll("circle")
-    .on('mouseover', function (d) {
-        d3.select(this).style("fill", "orange");
-        return tooltip.style("visibility", "visible")
-          .style("top", (d3.event.pageY-10)+"px")
-          .style("left",(d3.event.pageX+10)+"px");
-    })
-    .on('mouseout', function (d) {
-        d3.select(this).style("fill", "black");
-        return tooltip.style("visibility", "hidden");
-    });
-
-var tooltip = d3.select("body")
-    .append("div")
-    .style("outline", "thin solid orange")
-    .style("padding", "5px")
-    .style("position", "absolute")
-    .style("z-index", "10")
-    .style("visibility", "hidden")
-    .text("this is the point you have hovered over");
+  const plot = new Scatterplot("#deepscatter")
+  plot.plotAPI(prefs);
+  window.plot = plot; // For debugging
 </script>
