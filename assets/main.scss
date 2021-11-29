@@ -3,3 +3,7 @@
 
 @import "{{ site.theme }}";
 @import "assets/tooltip";
+
+#frontmatter {
+  margin: 50px 0;
+}
