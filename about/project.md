@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About the Project
+bodyclass: project
+navigation_weight: 2
 ---
 
 Some welcoming text.
