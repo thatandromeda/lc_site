@@ -6,10 +6,6 @@
 @import "{{ site.theme }}";
 @import "assets/tooltip";
 
-#frontmatter {
-  margin: 50px 0;
-}
-
 /* custom variable overrides */
 $body-background-color: #EEF0FA;
 $text-color: #103257;
