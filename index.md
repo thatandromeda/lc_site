@@ -30,7 +30,6 @@ Here’s a short video overview of how it works:
 The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content](#about-the-collections-and-subject-area)
 
 <p><a class="cta-button" href="/interact">Explore the Collections</a></p>
-<p><a class="cta-button secondary" href="/interact">Explore the Collections</a></p>
 
 ## What’s interesting?
 (some suggested/canned searches to try as a start, include edge cases like null or funky results) Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
