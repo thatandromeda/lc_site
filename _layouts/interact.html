@@ -29,6 +29,8 @@
       import Scatterplot from './js/deepscatter.es.js';
       const select = d3.select
       window.select = select; // For the click function below.
+      const wWidth = (window.innerWidth - 50)
+      const wHeight = (window.innerHeight - 200)
       const prefs = {
         "source_url": "{{ site.feather_files }}",
         "max_points": 10000,
@@ -105,7 +107,7 @@
       const colors = [
         JSON.parse(JSON.stringify(prefs.encoding.color))
       ]
-      const plot = new Scatterplot("#deepscatter", window.innerWidth, window.innerHeight)
+      const plot = new Scatterplot("#deepscatter", wWidth, wHeight)
       plot.plotAPI(prefs);
       window.plot = plot; // For debugging
 
