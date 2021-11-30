@@ -22,7 +22,7 @@
       </article>
     </div>
 
-    <div id="deepscatter" style="position:fixed;">
+    <div id="deepscatter" style="position:relative;">
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module">
@@ -105,7 +105,7 @@
       const colors = [
         JSON.parse(JSON.stringify(prefs.encoding.color))
       ]
-      const plot = new Scatterplot("#deepscatter")
+      const plot = new Scatterplot("#deepscatter", window.innerWidth, window.innerHeight)
       plot.plotAPI(prefs);
       window.plot = plot; // For debugging
 
