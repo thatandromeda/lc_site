@@ -1,6 +1,8 @@
 ---
 layout: page
-title: About the Content
+title: About the Collections
+bodyclass: collections
+navigation_weight: 3
 ---
 
 Some welcoming text.
