@@ -3,6 +3,21 @@
 
 {%- include head.html -%}
 
+  <script>
+    function toggleHelp() {
+      document.getElementById("tipsList").classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.help-button')) {
+          var tips = document.getElementById("tipsList");
+          if (tips.classList.contains('show')) {
+            tips.classList.remove('show');
+          }
+        }
+      }
+  </script>
+
 <body class="{{ page.bodyclass }}">
 
   {%- include header.html -%}
@@ -37,7 +52,7 @@
         "alpha": .7, // Target saturation for the full page.
         "zoom_balance": 0.09, // Rate at which points increase size. https://observablehq.com/@bmschmidt/zoom-strategies-for-huge-scatterplots-with-three-js
         "point_size": 7, // Default point size before application of size scaling
-        "background_color": "#dfe2e8",
+        "background_color": "#ffffff",
         "encoding": {
           "color": {
             field: "states",
@@ -59,12 +74,13 @@
           let image_url = datum["image_url"]
           let img = ''
           if (image_url) {
-            img = `<img src="${datum["image_url"]}" alt="photograph of original document">`
+            img = `<div class="tooltip-image"><a href='${datum["url"]}' target='_blank'><img src="${datum["image_url"]}" alt="photograph of original document"></a></div>`
           }
-          let header = `<div class="tooltip header">${datum["collections"].slice(2, -2)}</div>`
-          let title = `<h3 class="tooltip title">${datum["title"]}</h3>`
-          let date = `<div class="tooltip date">${datum['date']} &mdash; <a href='${datum["url"]}'>original</a></div>`
-          let description = `<div class="tooltip description">${datum['description'].slice(2, -2)}</div>`
+          let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
+          let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
+          let date = `<p class="tooltip-date">${datum['date']}</p>`
+          let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View this item</a>`
+          let description = `<div class="tooltip-description">${datum['description'].slice(2, -2)}</div>`
           let listdata = '';
           const labels = [
             "date", "subjects", "url"
@@ -93,15 +109,15 @@
             )
           } catch (e) {
             console.log(datum['subjects'])
-            subjects = 'nah'
+            subjects = []
           }
           let subjects_html = ''
           for (const subj of subjects) {
             // Why is subj an Object and not a dict? Dunno.
             let key = Object.keys(subj)[0]
-            subjects_html += `<li><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
+            subjects_html += `<li class="subject-item"><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
           }
-          return `<div class="tooltip container">${header}${title}${date}<div>${description}${img}<ul class="subjects">${subjects_html}</ul></div></div>`;
+          return `<div class="tooltip-container">${img}<div class="item summary">${title}${date}${collections}</div><div class="item metadata">${description}<h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div><div class="tooltip-link">${url}</div></div>`;
         })
       };
       const colors = [
