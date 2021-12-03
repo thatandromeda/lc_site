@@ -13,10 +13,9 @@ $text-color-transparent: rgba(76,110,147,.3);
 $line-length-lg: 90ch;
 $line-length-md: 70ch;
 $link-color: #1E6DBF;
-$contrast-color: #FF9C89;
-$contrast-color-muted: #EDB8AE;
+$contrast-color: #FFD073;
+$contrast-color-muted: #FFDF8A;
 $box-shadow-basic: 0px 2px 5px 0px rgba(16, 50, 87, 0.3);
-
 @import "assets/tooltip";
 
 /* general styles */
@@ -79,7 +78,7 @@ blockquote {
   display: inline-block;
   margin: 1rem auto;
   padding: 1rem 2.5rem;;
-  background-color: $contrast-color-muted;
+  background-color: $contrast-color;
   border-radius: 3px;
   color: $text-color;
   font-weight: 600;
@@ -91,7 +90,8 @@ blockquote {
   }
 
   &:hover {
-    background-color: $contrast-color;
+    background-color: $contrast-color-muted;
+    box-shadow: $box-shadow-basic;
     text-decoration: none;
   }
 
