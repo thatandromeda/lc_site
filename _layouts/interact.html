@@ -70,6 +70,7 @@
             transform: "literal"
           }
         },
+        "click_function": "let title = `<h3 class='tooltip-title'>${datum['title']}</h3>`; select('.tooltip').html(title)",
         "tooltip_html": (function (datum) {
           let image_url = datum["image_url"]
           let img = ''
@@ -142,8 +143,6 @@
             "lambda": `states => (states.slice(2, -2) == ${state})`
           }
         }
-        console.log(prefs.encoding)
-
         plot.plotAPI(prefs);
       });
     </script>
