@@ -278,3 +278,14 @@ blockquote {
 .footer-heading {
   display: none;
 }
+
+/* smaller screen adjustment */
+
+@media (max-width: 600px) {
+
+  .site-nav {
+    position: fixed;
+    z-index: 1000;
+    box-shadow: $box-shadow-basic;
+  }
+}
