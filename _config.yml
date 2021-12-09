@@ -35,7 +35,7 @@ theme: minima
 
 # Top-level URL at which the feather files are hosted. These files need to have
 # appropriate permissions and CORS settings to be readable here.
-feather_files: https://lc-site-gpcdo.nyc3.cdn.digitaloceanspaces.com/model_20211104_165707_tiles
+feather_files: https://lc-site-gpcdo.nyc3.cdn.digitaloceanspaces.com/tiles
 
 # Exclude from processing.
 # The following items will not be processed, by default.
