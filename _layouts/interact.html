@@ -3,20 +3,20 @@
 
 {%- include head.html -%}
 
-  <script>
-    function toggleHelp() {
-      document.getElementById("tipsList").classList.toggle("show");
-    }
+<script>
+  function toggleHelp() {
+    document.getElementById("tipsList").classList.toggle("show");
+  }
 
-    window.onclick = function (event) {
-        if (!event.target.matches('.help-button')) {
-          var tips = document.getElementById("tipsList");
-          if (tips.classList.contains('show')) {
-            tips.classList.remove('show');
-          }
+  window.onclick = function (event) {
+      if (!event.target.matches('.help-button')) {
+        var tips = document.getElementById("tipsList");
+        if (tips.classList.contains('show')) {
+          tips.classList.remove('show');
         }
       }
-  </script>
+    }
+</script>
 
 <body class="{{ page.bodyclass }}">
 
@@ -35,6 +35,31 @@
         </div>
 
       </article>
+
+      <label>Color by word:
+        <select id="colorize">
+          <option value="">Use default colors</option>
+          <option value="abolition">abolition</option>
+          <option value="agriculture">agriculture</option>
+          <option value="business">business</option>
+          <option value="constitution">constitution</option>
+          <option value="convention">convention</option>
+          <option value="economy">economy</option>
+          <option value="education">education</option>
+          <option value="election">election</option>
+          <option value="equality">equality</option>
+          <option value="freedmen">freedmen</option>
+          <option value="labor">labor</option>
+          <option value="property">property</option>
+          <option value="representation">representation</option>
+          <option value="rights">rights</option>
+          <option value="school">school</option>
+          <option value="suffrage">suffrage</option>
+          <option value="worker">worker</option>
+          <option value="yeoman">yeoman</option>
+        </select>
+      </label>
+
     </div>
 
     <div id="deepscatter" style="position:relative;">
@@ -44,8 +69,16 @@
       import Scatterplot from './js/deepscatter.es.js';
       const select = d3.select
       window.select = select; // For the click function below.
+
       const wWidth = (window.innerWidth - 50)
       const wHeight = (window.innerHeight - 200)
+
+      let default_color = {
+        field: "date",
+        range: "set2",  // change this to get different color schemes, per https://observablehq.com/@d3/color-schemes
+        domain: [-2047, 2047]
+      }
+
       const prefs = {
         "source_url": "{{ site.feather_files }}",
         "max_points": 10000,
@@ -54,13 +87,7 @@
         "point_size": 7, // Default point size before application of size scaling
         "background_color": "#ffffff",
         "encoding": {
-          "color": {
-            field: "date",
-            range: "set2",  // change this to get different color schemes, per https://observablehq.com/@d3/color-schemes
-            domain: [-2047, 2047]
-          },
-          // labels/data/hover aren't working yet
-          // "labels": ["collections", "title", "image_url", "date", "subjects", "url"],
+          "color": default_color,
           "x": {
             field: "x",
             transform: "literal"
@@ -121,29 +148,32 @@
           return `<div class="tooltip-container">${img}<div class="item summary">${title}${date}${collections}</div><div class="item metadata">${description}<h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div><div class="tooltip-link">${url}</div></div>`;
         })
       };
-      const colors = [
-        JSON.parse(JSON.stringify(prefs.encoding.color))
-      ]
+
       const plot = new Scatterplot("#deepscatter", wWidth, wHeight)
       plot.plotAPI(prefs);
       window.plot = plot; // For debugging
 
-      let state = "['default']";
+      const colorSelector = document.querySelector('#colorize');
 
-      document.getElementById('stateSelector').addEventListener('change', function () {
-        state = `['${this.value}']`;
-
-        if (state == "['default']") {
-          prefs.encoding['filter'] = {
-            "lambda": `states => true`
-          }
+      colorSelector.addEventListener('change', (event) => {
+        if (event.target.value == 0) {
+          plot.plotAPI({
+            'duration': 0.3,
+            'encoding': {'color': default_color }
+          })
         } else {
-          // filter will be aliased to filter1
-          prefs.encoding['filter'] = {
-            "lambda": `states => (states.slice(2, -2) == ${state})`
-          }
+          plot.plotAPI({
+            'duration': 0.3,
+            'encoding': {'color': {
+              field: event.target.value,
+              range: "greens",
+              // The real value span is more like [-30, 50], but you get a wider
+              // range of colors, hence more meaningful visualization, if you
+              // compress the ends.
+              domain: [0, 25]
+            }}
+          })
         }
-        plot.plotAPI(prefs);
       });
     </script>
 
