@@ -38,7 +38,7 @@
 
       <label>Color by word:
         <select id="colorize">
-          <option value="">Use default colors</option>
+          <option value="">Color by year (default)</option>
           <option value="abolition">abolition</option>
           <option value="agriculture">agriculture</option>
           <option value="business">business</option>
@@ -81,7 +81,7 @@
 
       const prefs = {
         "source_url": "{{ site.feather_files }}",
-        "max_points": 25000, // Matches quadfeather tile_size property.
+        "max_points": 100000, // Quadfeather tile_size == 25000; trying more for exploratory purposes.
         "alpha": .7, // Target saturation for the full page.
         "zoom_balance": 0.09, // Rate at which points increase size. https://observablehq.com/@bmschmidt/zoom-strategies-for-huge-scatterplots-with-three-js
         "point_size": 7, // Default point size before application of size scaling
