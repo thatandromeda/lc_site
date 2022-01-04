@@ -10,7 +10,7 @@ bodyclass: collections
 
 ## Introduction
 
-The goal of data cleaning with this project was to give people new ways of exploring the collection by encouraging the neural net to cluster on _conceptually meaningful content_. For example, a cluster that contains <!-- TODO: zoom to Anthony/Stanton part, possibly linked from an image below -->lots of documents about women's suffrage is conceptually meaningful. By contrast, it's not conceptually meaningful to cluster documents because they share the same meaningless strings of characters due to OCR errors. It's somewhat meaningful to cluster different editions of the same newspaper together, because they have the same title and location of publication — but it isn't _helpful_, because it repeats information we already have from Library of Congress metadata.
+The goal of data cleaning with this project was to give people new ways of exploring the collection by encouraging the neural net to cluster on _conceptually meaningful content_. For example, a cluster that contains [lots of documents about women's suffrage](/explore.html?xmin=5.55&xmax=5.65&ymin=18.365&ymax=18.45) is conceptually meaningful. By contrast, it's not conceptually meaningful to cluster documents because they share the same meaningless strings of characters due to OCR errors. It's somewhat meaningful to cluster different editions of the same newspaper together, because they have the same title and location of publication — but it isn't _helpful_, because it repeats information we already have from Library of Congress metadata.
 
 I created a number of filters to encourage meaningful clustering by suppressing OCR errors, artifacts of the digitization process, and terms that indicated _format_ more than _content_. These are described below, with links to source code. They are shell scripts where possible, due to the lightning-fast performance of UNIX tools, and Python scripts where they require complex calculation or integration with other Python scripts (external tools or other parts of my codebase).
 
@@ -74,6 +74,11 @@ This creates a corpus that is probably similar to the original intent where poss
 I postprocessed the entire corpus (remaining after the above filters) with this filter.
 
 ### Locations
+{% include github_link.html link="https://github.com/thatandromeda/lc_etl/blob/59f4f907c2d2899935f6c3b2d934f36ee15051c5/lc_etl/filter_newspaper_locations.py" %}
+
+I also hypothesize that newspapers are quite likely to contain their own titles and locations throughout their text (as they comment on local news), and this will push the neural net toward clustering on those words and away from clustering on other concepts. That is, I'd prefer that elections-oriented content end up together across a variety of local elections than for local news on a variety of topics to end up together because it's local.
+
+Therefore I use Library of Congress metadata on titles and locations to remove matching words. This is an extremely incomplete filter since the filter considers documents one word at a time and many place names are two words (e.g. Des Moines, New Haven, Baton Rouge, Chester County).
 
 ## Notes
 [^1]: Technically, it retains documents where at least 62.5% of a random sample of 400 words over a minimum length are in the dictionary. This produces very similar decisions to checking every word while taking radically less time to compute.

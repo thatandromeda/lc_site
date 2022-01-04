@@ -62,7 +62,7 @@
 
     </div>
 
-    <div id="deepscatter" style="position:relative;">
+    <div id="deepscatter">
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="module">
@@ -77,6 +77,18 @@
         field: "date",
         range: "set2",  // change this to get different color schemes, per https://observablehq.com/@d3/color-schemes
         domain: [-2047, 2047]
+      }
+
+      function zoomToSelection() {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+
+        if (params.xmin && params.xmax && params.ymin && params.ymax) {
+          plot.plotAPI({'zoom': { 'bbox': {
+            'x':[params.xmin, params.xmax],
+            'y':[params.ymin, params.ymax]
+          }}})
+        }
       }
 
       const prefs = {
@@ -149,7 +161,7 @@
       };
 
       const plot = new Scatterplot("#deepscatter", wWidth, wHeight)
-      plot.plotAPI(prefs);
+      plot.plotAPI(prefs).then(zoomToSelection);
       window.plot = plot; // For debugging
 
       const colorSelector = document.querySelector('#colorize');
@@ -175,7 +187,6 @@
         }
       });
     </script>
-
   </main>
 
   {%- include footer.html -%}
