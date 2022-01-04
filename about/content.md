@@ -11,7 +11,7 @@ Some welcoming text.
 Nullam quis porttitor purus, eu finibus justo.
 
 ## Data selection
-{% include data_selection.html %}
+{% include data_selection.md %}
 
 ## Advisory/disclaimer
 Sed tristique placerat iaculis. In faucibus sem eget.

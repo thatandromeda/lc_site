@@ -16,7 +16,7 @@ Duis cursus semper magna, eu eleifend felis ultrices.
 ## Tech stack
 Sed tristique placerat iaculis. In faucibus sem eget.
 
-## Team
+## Acknowledgements
 Sed vulputate ligula vitae tortor feugiat, tempor suscipit.
 
 ## Next steps
