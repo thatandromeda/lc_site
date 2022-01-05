@@ -284,10 +284,13 @@ blockquote {
   }
 }
 /* footer */
-.footer-heading {
-  display: none;
-}
 
+footer .p-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  vertical-align: middle;
+  line-height: 1.2;
+}
 /* smaller screen adjustment */
 
 @media (max-width: 600px) {
