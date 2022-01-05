@@ -79,11 +79,18 @@
         domain: [-2047, 2047]
       }
 
+      function validBbox(params) {
+        let corners = new Array(params.xmin, params.xmax, params.ymin, params.ymax)
+        let cornersExist = corners.every(Boolean)
+        let cornersAreNumbers = corners.every(parseFloat)
+        return (cornersExist && cornersAreNumbers)
+      }
+
       function zoomToSelection() {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
 
-        if (params.xmin && params.xmax && params.ymin && params.ymax) {
+        if (validBbox(params)) {
           plot.plotAPI({'zoom': { 'bbox': {
             'x':[params.xmin, params.xmax],
             'y':[params.ymin, params.ymax]
