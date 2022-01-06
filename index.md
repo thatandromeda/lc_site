@@ -10,7 +10,7 @@ navigation_weight: 1
 <div class="hero">
   <h1 class="home-title">Situating Ourselves<br> in Cultural Heritage</h1>
   <div class="snapshot-wrapper">
-    .
+    &nbsp;
   </div>
 </div>
 
@@ -24,7 +24,7 @@ As you begin an exploration of the collections, items will scatter across the sc
 Here’s a short video overview of how it works:
 
 <div class="video-wrapper">
-  .
+  &nbsp;
 </div>
 
 The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content](#about-the-collections-and-subject-area)
@@ -44,7 +44,7 @@ At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergr
 
 
 # About the Collections and Subject Area
-The project includes content from a number of collections in the Library of Congress that dates from the United States from between 1865 and 1877 and have been digitized as full text, including Chronicling America, Supreme Court reports and statutes, the Abraham Lincoln Papers, Walt Whitman papers, Elizabeth Cady Stanton papers, among others. The primary focus is on the Reconstruction era. [Learn more](/about/content)
+The project includes content from a number of collections in the Library of Congress that dates from the United States from between 1865 and 1877 and have been digitized as full text, including Chronicling America, Supreme Court reports and statutes, the Abraham Lincoln Papers, Walt Whitman papers, Elizabeth Cady Stanton papers, and more. The focus is on the Reconstruction era. [Learn more](/about/content).
 
 
 <div class="message">

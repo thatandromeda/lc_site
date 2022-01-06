@@ -23,17 +23,14 @@ These filters are particular to the needs of my project: a neural net which lear
 
 Optical Character Recognition (OCR) is the process of automatically converting a photograph of text into machine-readable text. It's a critical tool in transforming archival holdings into computationally accessible forms. While the text formats of some Library of Congress documents are [crowdsourced](https://crowd.loc.gov/), the vast majority of documents in this data set are [OCRed Chronicling America newspaper pages](https://chroniclingamerica.loc.gov/ocr/).
 
-OCR is not 100% accurate. Its problems are more severe for historical documents, due to degradation of the physical materials, and for documents which were OCRed in early digitization projects, due to improvements in digitization workflows over time. These are [important challenges for Reconstruction-era newspapers](https://repository.library.northeastern.edu/downloads/neu:m043qk202?datastream_id=content) (see "related issues"); unfortunately, ["Chronicling America is one of the messiest sources of text out there"](http://bookworm.benschmidt.org/posts/2015-10-25-Word-Embeddings.html)
+OCR is not 100% accurate. Its problems are more severe for historical documents, due to degradation of the physical materials, and for documents which were OCRed in early digitization projects, due to improvements in digitization workflows over time. These are [important challenges for Reconstruction-era newspapers](https://repository.library.northeastern.edu/downloads/neu:m043qk202?datastream_id=content) (see "related issues"); unfortunately, ["Chronicling America is one of the messiest sources of text out there"](http://bookworm.benschmidt.org/posts/2015-10-25-Word-Embeddings.html).
 
-> f!m,ITMTAN.
->
-> . .. Ti-!.l a.-l 1K 1071
-> AniTIR 1 I I I' . J.11U.1.VI UU )l 1U1 w
->
-> ilvu. 1. linwF.i.i.y"..'' it!:.-VCVi.
->
-> 1 ivVriiinii.t. Co., No. 017 Chestnut Ml red,
->
+> f!m,ITMTAN.<br/>
+> . .. Ti-!.l a.-l 1K 1071<br/>
+> AniTIR 1 I I I' . J.11U.1.VI UU )l 1U1 w<br/>
+> ilvu. 1. linwF.i.i.y"..'' it!:.-VCVi.<br/>
+> 1 ivVriiinii.t. Co., No. 017 Chestnut Ml red,<br/>
+> 
 > <cite>[The Columbian, September 15, 1871, Image 3](https://chroniclingamerica.loc.gov/lccn/sn83032011/1871-09-15/ed-1/seq-3/)</cite>
 
 
