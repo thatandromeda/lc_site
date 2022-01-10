@@ -6,9 +6,11 @@ bodyclass: project
 
 Core technologies for this project included:
 
-**[Jekyll](https://jekyllrb.com/).** Using a static site generator means staying close to HTML and JavaScript, building blocks of the web, and minimizing external dependencies.
-
 **[Gensim](https://radimrehurek.com/gensim/).** This machine learning library implements [Doc2Vec](https://arxiv.org/abs/1405.4053) (my algorithm of choice for this project). It's fast and widely used with a straightfoward interface. While I researched more modern algorithms like transformers, Doc2Vec is more suitable for processing long documents.
+
+Doc2Vec, and how neural nets work more generally, demands more attention than I can give it in a paragraph; here's an [in-depth discussion]({% link about/project/doc2vec.md %}).
+
+**[Jekyll](https://jekyllrb.com/).** Using a static site generator means staying close to HTML and JavaScript, building blocks of the web, and minimizing external dependencies.
 
 **Python, JavaScript, and shell scripts.** Python is a standard language of machine learning projects and lets me use gensim. Most of the back end of the project is in Python. JavaScript is required for interactive content on the web. Shell scripts are jaw-droppingly fast for large-scale text processing. I reached for them when my computational needs were simple enough that I didn't need Python libraries.
 
