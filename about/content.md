@@ -15,7 +15,6 @@ The intent of this project is to provide a discovery interface to Reconstruction
 
 This includes a wide array of material types. Examples include:
 * A program for a [service observing Lincoln's funeral](https://loc.gov/item/rbpe.1770390a) in Vermont;
-* Reminiscences of a [Black cowboy](https://loc.gov/item/wpalh002179);
 * Walt Whitman's notes as he [worked through themes in Leaves of Grass](https://loc.gov/item/mss1863001302);
 * A book arguing for [women's rights and equality](https://www.loc.gov/item/09028337/).
 

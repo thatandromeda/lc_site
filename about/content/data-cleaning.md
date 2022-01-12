@@ -18,6 +18,9 @@ These filters are particular to the needs of my project: a neural net which lear
 
 ## Filters
 
+### Stopword removal
+As is common for machine learning projects, I ignored stopwords while training on the document corpus. (Stopwords are common words like "a" or "the" which don't carry much information about what a document means, but might take a long time to process because they are so frequent.) I used the gensim's built-in `gensim.parsing.preprocessing.remove_stopwords` function.
+
 ### OCR quality
 {% include github_link.html link="https://github.com/thatandromeda/lc_etl/blob/59f4f907c2d2899935f6c3b2d934f36ee15051c5/lc_etl/filter_ocr.py" %}
 
@@ -30,7 +33,7 @@ OCR is not 100% accurate. Its problems are more severe for historical documents,
 > AniTIR 1 I I I' . J.11U.1.VI UU )l 1U1 w<br/>
 > ilvu. 1. linwF.i.i.y"..'' it!:.-VCVi.<br/>
 > 1 ivVriiinii.t. Co., No. 017 Chestnut Ml red,<br/>
-> 
+>
 > <cite>[The Columbian, September 15, 1871, Image 3](https://chroniclingamerica.loc.gov/lccn/sn83032011/1871-09-15/ed-1/seq-3/)</cite>
 
 
