@@ -39,7 +39,8 @@ Not sure where to start? How about:
 * [New York Herald classified ads](TKTKTK), which provide a window into everyday life.
 * News articles, proclamations, and more concerning [how to handle Confederate soldiers and the return to peace after the Civil War](/explore.html?xmin=10.3&xmax=11.2&ymin=4.4&ymax=4.6) (it's easier to find documents of interest here if you recolor by "constitution").
 <!-- * [TKTKTK contains following: https://chroniclingamerica.loc.gov/lccn/sn93067983/1865-07-07/ed-1/seq-4/ , https://chroniclingamerica.loc.gov/lccn/sn83030313/1865-01-26/ed-1/seq-5/ , https://chroniclingamerica.loc.gov/lccn/sn84027007/1865-07-04/ed-1/seq-1/ , https://www.loc.gov/item/rbpe.20406400/ -- all about trying to figure out what to do with soldiers after the War -- coords don't seem to map right to display]
-[TKTKTK can't find a good thing with Black newspapers] -->
+[TKTKTK can't find a good thing with Black newspapers]
+the "abolition" spike at 4oclock? -->
 
 [Try it out!]({% link explore.md %})
 

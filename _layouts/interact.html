@@ -36,9 +36,9 @@
 
       </article>
 
-      <label>Color by word:
+      <label>Highlight documents about...
         <select id="colorize">
-          <option value="">Color by year (default)</option>
+          <option value="">No highlighting; color by year (default)</option>
           <option value="abolition">abolition</option>
           <option value="agriculture">agriculture</option>
           <option value="business">business</option>
@@ -51,12 +51,8 @@
           <option value="freedmen">freedmen</option>
           <option value="labor">labor</option>
           <option value="property">property</option>
-          <option value="representation">representation</option>
-          <option value="rights">rights</option>
-          <option value="school">school</option>
           <option value="suffrage">suffrage</option>
           <option value="worker">worker</option>
-          <option value="yeoman">yeoman</option>
         </select>
       </label>
 
@@ -126,7 +122,7 @@
           let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
           let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
           let date = `<p class="tooltip-date">${datum['date']}</p>`
-          let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View this item</a>`
+          let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View full item</a>`
           let description = `<div class="tooltip-description">${datum['description'].slice(2, -2)}</div>`
           let listdata = '';
           const labels = [
@@ -163,7 +159,7 @@
             let key = Object.keys(subj)[0]
             subjects_html += `<li class="subject-item"><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
           }
-          return `<div class="tooltip-container">${img}<div class="item summary">${title}${date}${collections}</div><div class="item metadata">${description}<h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div><div class="tooltip-link">${url}</div></div>`;
+          return `<div class="tooltip-container">${img}<div class="item summary">${title}<div class="tooltip-link">${url}</div>${date}${collections}</div><div class="item metadata">${description}<h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div></div>`;
         })
       };
 
