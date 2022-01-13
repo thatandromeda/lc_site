@@ -44,15 +44,24 @@ The Chronicling America collection includes 26 newspapers for Black audiences fr
 This would be easy enough to implement technically. However, it would present some user experience challenges. First, adding features without overwhelming or confusing users requires care. Second, the context of these newspapers is important. Some were published by [Black people who had](https://chroniclingamerica.loc.gov/lccn/sn83025783/) [long lived in the regions their papers served](https://chroniclingamerica.loc.gov/lccn/sn84020151/); others were published by [white Northern missionaries or abolitionists who moved south after the war](https://chroniclingamerica.loc.gov/lccn/sn83025784/). Speaking to Black audiences is not the same as speaking from Black perspectives.
 
 ### Additional user experience testing
-Most of the above would require additional user experience testing. [TKTKTK also my word filters if I end up putting them in the front page]
+Most of the above would require additional user experience testing.
 
-[TKTKTK something about handling Black newspapers]
+It would also be interesting to train a variety of neural nets, using different [data filtering options]({% link about/content/data-cleaning.md %}) and [neural net parameters]({% link about/project/doc2vec.md %}), and test them with both novice and expert historians to see which best allowed people to find interesting connections.
 
 ## New opportunities
-  * did you mean
-  * OCR correction
-  * LC natively providing article-level newspaper files
-* algorithmic bias challenges???
+The prior ideas pertain to this web site itself. However, the underlying neural net can be applied to various goals. Furthermore, various projects might improve the neural net's ability to support insights.
+
+### Improved search and "did you mean...?"
+When users search the [Library of Congress collections](https://www.loc.gov), or any web site, sometimes they inadvertently enter typos. Alternatively, they may enter the correct word, but the text being searched contains misspellings due to OCR errors, and therefore their search doesn't find the results that it should.
+
+Because the [underlying neural net]({% link about/project/doc2vec.md %}) learns about word similarities, it could be helpful in identifying alternate search terms. This might cover near-synonyms, like suggesting "franchise" to people who search for "suffrage". However, the neural net particularly shines in identifying common typos or OCR errors. For instance, it learns that "suffrago" and "suffrage" are very similar.[^3]
+
+Incorporating a neural net like this one into a search process would let a library web site suggest alternatives to users who had misspelled something. However, there are simpler technologies available to that. The neural net could particularly shine in helping users search across a collection rife with errors, by supplying a variety of alternate terms the search algorithm should also check, including ones that aren't in any dictionary but are common in the underlying collections. For example, as of this writing, there are [1,634 hits for "suffrago" in the Library of Congress](https://www.loc.gov/search/?q=suffrago), all of which users likely hope to surface when they search for "suffrage".
+
+### Semi-automated OCR correction
+That said, wouldn't it be better if — instead of modifying searches to correct for OCR errors — the fulltext were accurate in the first place? This would support not only search but any kind of computational project on this corpus.
+
+OCR is notoriously difficult, especially on historical documents. However, a neural net familiar with common OCR errors could provide suggestions of similarly-spelled but legitimate words. I did this in a fully automated fashion in one of my [data filters]({% link about/content/data-cleaning.md %}). It would be more time-consuming, but more accurate, to build this into a [human-in-the-loop interface](https://labs.loc.gov/work/experiments/humans-loop/) that let humans rapidly accept or reject automated suggestions in order to clean data at scale.
 
 ## Notes
 [^1]: Their relatedness is `0.71` in the neural net underlying this project. In  my experience, anything above `0.65` or so is potentially related enough to be interesting.
@@ -60,3 +69,5 @@ Most of the above would require additional user experience testing. [TKTKTK also
 Similarly, the model knows that "agriculture" and "horticulture" are similar (`0.79`). It's also excellent at identifying common typos or OCR errors (the similar-looking "farming" and "fanning" have a similarity of `0.82`).
 
 [^2]: You might reasonably ask why the Elizabeth Cady Stanton papers, which largely date to 1848 (the year of the Seneca Falls Convention on women's rights), are in this data set. My guess is that because the dates of her _collected_ papers overlap with my date range of interest (1865-1877), the Library of Congress API returned all of them. This illustrates the challenges of working with large-scale data pipelines!
+
+[^3]: Assuming, of course, that you have not filtered these OCR errors out of your training corpus. I did that for situating.us, so that the neural net could use its powers to find connections among real words rather than to sort out mistakes — but if your goal was to provide suggestions or fix OCR errors, you'd want to leave them all in the training corpus, so that the neural net could learn about misspelled words specifically.

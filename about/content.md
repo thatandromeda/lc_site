@@ -5,13 +5,13 @@ bodyclass: collections
 navigation_weight: 3
 ---
 
-Some welcoming text.
+<!-- Some welcoming text. -->
 
 ## Overview of the topic
-Nullam quis porttitor purus, eu finibus justo.
+The intent of this project is to invite you to learn about Reconstruction by providing a novel way to interact with Reconstruction-era Library of Congress content.
 
 ## Data selection
-The intent of this project is to provide a discovery interface to Reconstruction-era Library of Congress content. For that reason, I cast as wide a net as possible, processing all Library of Congress materials from 1865-1877 which are available in fulltext format.
+For that reason, I cast as wide a net as possible, processing all Library of Congress materials from 1865-1877 which are available in fulltext format.
 
 This includes a wide array of material types. Examples include:
 * A program for a [service observing Lincoln's funeral](https://loc.gov/item/rbpe.1770390a) in Vermont;
@@ -28,8 +28,15 @@ I considered using materials from other time periods _about_ Reconstruction, but
 
 Additionally, as with any data-intensive project, I had to perform a lot of data cleaning to make the available data suitable for my purposes. I detail this in a [separate section]({% link about/content/data-cleaning.md %}).
 
-## Advisory/disclaimer
-Sed tristique placerat iaculis. In faucibus sem eget.
+Finally, it's worth noting that the documents available to me for this project are not fully representative of the Reconstruction period for three reasons.
+
+First, only a subset of all the documents available at the Library of Congress from this period. Many paper documents have not been converted into machine-readable text format because large-scale digitization is resource-intensive. The documents that have been digitized are the ones of particular public interest, and the ones for which dedicated funds have, at some point, been available. This means that many of the [Abraham Lincoln papers](https://www.loc.gov/collections/abraham-lincoln-papers/about-this-collection/) are available as machine-readable text — but none of the [Andrew Johnson papers](https://www.loc.gov/collections/andrew-johnson-papers/about-this-collection/), much less the [Confederate States of America records](https://www.loc.gov/collections/confederate-states-of-america-records/about-this-collection/). While it's understandable and correct that the records of one of America's favorite presidents would be made more accessible before those of its first impeached President, or of actual traitors, it does distort the record as presented by this project.
+
+Second, the Library of Congress did not collect all documents produced during this period. All libraries must make decisions about what to store in their limited space, and not all documents are particularly significant. But what is "significance"? As Dorothy Berry says, ["archives are institutions defining documentary history"](https://www.uproot.space/features/the-house-archives-built), but historically they have done so in ways that serve predominantly white institutions whose goals (and understandings) have not necessarily included Black cultural memory. This is particularly significant for the Reconstruction period.
+
+And third, slavery — the same institution that made the Civil War and Reconstruction necessary — deprived many Black people of the education to write their experiences and the resources to publish them. Even if every scrap of paper written on from 1865 through 1877 had somehow been available to this project, those scraps of paper would not fairly represent the range of human experience.
+
+{% include disclaimer.html %}
 
 ## Contact/report
 {% include contact.md %}

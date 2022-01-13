@@ -14,48 +14,40 @@ navigation_weight: 1
   </div>
 </div>
 
-What if you could see the breadth of content across several collections of historical newspapers at a glance? What if a machine could read all the newspapers for a century and show you articles similar to one you read from any place or year? These were some of the questions that inspired this project which used neural nets to explore the digitized historical newspaper collections dating from 1865 to 1877 in the Library of Congress.
+What if you could see the breadth of content across hundreds of thousands of historical documents at a glance? What if a machine could read all of them and help you find your own connections — and your own understanding of America?
 
-This experimental project aimed to use, learn about, and help improve computational access to LoC digital content, and to expose more of the rich LoC collections to scholars and the public. Using a neural net and machine learning on OCR content, this exploratory tool serves as a proof of concept for finding potentially similar or related content outside of manual classification.
+This experimental project aimed to use, learn about, and help improve computational access to Library of Congress digital content, and to expose more of the Library's rich collections to scholars and the public. Using machine learning, this exploratory tool serves as a proof of concept for finding potentially similar or related content outside of manual classification. It incorporates all available documents from the Reconstruction era (1865-1877), because how we tell the story of this period is critical to how we understand America.
 
 ## Exploring the Collections
-As you begin an exploration of the collections, items will scatter across the screen. There are thousands of articles, letters, book chapters, manuscripts, and other text-rich items represented in the display, so some clusters or dots may represent several items when zoomed out.
+As you begin an exploration of the collections, items will scatter across the screen. There are thousands of articles, letters, book chapters, manuscripts, and other text-rich items represented in the display, so some clusters or dots may represent several items; zoom in to see more.
 
-Here’s a short video overview of how it works:
+Here’s a short video overview:
 
 <div class="video-wrapper">
   &nbsp;
 </div>
 
-The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content](#about-the-collections-and-subject-area)
+The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content.]({% link about/content.md %})
 
 <p><a class="cta-button" href="/interact">Explore the Collections</a></p>
 
-## What’s interesting?
-(some suggested/canned searches to try as a start, include edge cases like null or funky results) Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+## Where should I start?
+You're welcome to dive in anywhere! Zoom and pan with your mouse and use the color-coding options to look for groups with interesting shapes. Then hover or click on the dots to learn more about the documents they represent and look for common themes. Click through to the originals at the Library of Congress to read the full text, which may give you even more insights. I invite you to discover your own meanings in the collection.
 
-- Lorem ipsum dolor sit amet
-- Tonsetetur sadipscing elitr, sed diam nonumy eirmod
-- Tempor invidunt ut labore et dolore magna aliquyam erat
+Not sure where to start? How about:
+* [The women's suffrage movement](TKTKTK), which was contemporaneous with Reconstruction. Both women's suffrage and abolition wrestled with questions of equality, citizenship, and belonging...but with lively debate over whether white women and Black men should fight together or take turns, and with Black women too often excluded.
+* [New York Herald classified ads](TKTKTK), which provide a window into everyday life.
+* News articles, proclamations, and more concerning [how to handle Confederate soldiers and the return to peace after the Civil War](/explore.html?xmin=10.3&xmax=11.2&ymin=4.4&ymax=4.6) (it's easier to find documents of interest here if you recolor by "constitution").
+<!-- * [TKTKTK contains following: https://chroniclingamerica.loc.gov/lccn/sn93067983/1865-07-07/ed-1/seq-4/ , https://chroniclingamerica.loc.gov/lccn/sn83030313/1865-01-26/ed-1/seq-5/ , https://chroniclingamerica.loc.gov/lccn/sn84027007/1865-07-04/ed-1/seq-1/ , https://www.loc.gov/item/rbpe.20406400/ -- all about trying to figure out what to do with soldiers after the War -- coords don't seem to map right to display]
+[TKTKTK can't find a good thing with Black newspapers] -->
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. [Try it out](/interact)
+[Try it out!]({% link explore.md %})
 
 
 # About the Collections and Subject Area
-The project includes content from a number of collections in the Library of Congress that dates from the United States from between 1865 and 1877 and have been digitized as full text, including Chronicling America, Supreme Court reports and statutes, the Abraham Lincoln Papers, Walt Whitman papers, Elizabeth Cady Stanton papers, and more. The focus is on the Reconstruction era. [Learn more](/about/content).
+The project includes documents in the Library of Congress from the United States, between 1865 and 1877, which have been digitized as full text. This is mostly newspapers from  [Chronicling America](https://chroniclingamerica.loc.gov/), but also includes a wide array of other things, including broadsheets and pamphlets; books; and content from the papers of Abraham Lincoln, Walt Whitman, Elizabeth Cady Stanton, and others. The focus is on the Reconstruction era. [Learn more](/about/content).
 
-
-<div class="message">
-  <h3>A Note about the Content</h3>
-  <p>As this material is historical, you will come across language, material, attitudes, and opinions that may be disturbing or uncomfortable to read. (more warnings here)</p>
-</div>
-
+{% include disclaimer.html %}
 
 # About the Project
-This project is part of the [TKTKTK] project in the Library of Congress Advanced Technical Research program area that aims increase computational access to collections. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. [Learn more](/about/project)
-
----
-
-Found a bug? [Let us know](https://github.com/thatandromeda/lc_site/issues).
+This project is part of the [Computing Cultural Heritage in the Cloud project](https://labs.loc.gov/work/experiments/cchc/) of the [Library of Congress Labs](https://labs.loc.gov/), which aims to increase computational access to collections. [Learn more about the project.](/about/project)
