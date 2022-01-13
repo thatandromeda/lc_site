@@ -21,7 +21,7 @@ This experimental project aimed to use, learn about, and help improve computatio
 ## Exploring the Collections
 As you begin an exploration of the collections, items will scatter across the screen. There are thousands of articles, letters, book chapters, manuscripts, and other text-rich items represented in the display, so some clusters or dots may represent several items; zoom in to see more.
 
-Here’s a short video overview:
+Here’s a short video overview (to come):
 
 <div class="video-wrapper">
   &nbsp;
