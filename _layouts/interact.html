@@ -71,7 +71,11 @@
 
       let default_color = {
         field: "year",
-        range: "set2",  // change this to get different color schemes, per https://observablehq.com/@d3/color-schemes
+        // Change this to get different color schemes, per https://observablehq.com/@d3/color-schemes.
+        // Make sure the selected scheme has at least 13 options! Otherwise there
+        // aren't enough for each year to have its own, and the hover color gets
+        // buggy.
+        range: "blues",
         domain: [1865, 1877]
       }
 
