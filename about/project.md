@@ -5,7 +5,7 @@ bodyclass: project
 navigation_weight: 2
 ---
 
-Welcome to a novel way of exploring Library of Congress collections. I invite you to find your own questions and connections here, reflecting on what we can learn from Reconstruction about America.
+Welcome to a novel way of exploring Library of Congress collections. I invite you to find your own questions and connections here, reflecting on what we can learn from Reconstruction about America. Do you have questions, comments, discoveries? Share them on social media with #SituatingUs.
 
 ## Why this project?
 As a librarian and software engineer, I'm interested in giving people new and engaging ways of interacting with cultural heritage collections using machine learning. If we had never seen a card catalog, what would we build? I'm particularly interested in facilitating interactions with library materials in contexts where traditional metadata is not available.

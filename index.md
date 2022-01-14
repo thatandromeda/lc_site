@@ -44,6 +44,7 @@ the "abolition" spike at 4oclock? -->
 
 [Try it out!]({% link explore.md %})
 
+Find something interesting? Share it on social media with #SituatingUs.
 
 # About the Collections and Subject Area
 The project includes documents in the Library of Congress from the United States, between 1865 and 1877, which have been digitized as full text. This is mostly newspapers from  [Chronicling America](https://chroniclingamerica.loc.gov/), but also includes a wide array of other things, including broadsheets and pamphlets; books; and content from the papers of Abraham Lincoln, Walt Whitman, Elizabeth Cady Stanton, and others. The focus is on the Reconstruction era. [Learn more](/about/content).

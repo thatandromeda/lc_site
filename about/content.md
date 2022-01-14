@@ -8,7 +8,7 @@ navigation_weight: 3
 <!-- Some welcoming text. -->
 
 ## Overview of the topic
-The intent of this project is to invite you to learn about Reconstruction by providing a novel way to interact with Reconstruction-era Library of Congress content.
+The intent of this project is to invite you to learn about Reconstruction by providing a novel way to interact with Reconstruction-era Library of Congress content. Do you have questions, comments, discoveries? Share them on social media with #SituatingUs.
 
 ## Data selection
 For that reason, I cast as wide a net as possible, processing all Library of Congress materials from 1865-1877 which are available in fulltext format.
