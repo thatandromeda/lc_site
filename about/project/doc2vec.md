@@ -2,6 +2,7 @@
 layout: page
 title: Doc2Vec and neural nets
 bodyclass: project
+nav_category: project
 ---
 
 What is a neural net? What does it mean to train one on a document corpus?

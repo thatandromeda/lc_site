@@ -2,6 +2,7 @@
 layout: page
 title: Next steps
 bodyclass: project
+nav_category: project
 ---
 
 There are many potential next steps for this project. They fall into two categories: 1) improvements to this site; 2) opportunities that leverage the insights of this work.

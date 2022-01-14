@@ -3,6 +3,7 @@ layout: page
 title: About the Project
 bodyclass: project
 navigation_weight: 2
+nav_parent_of: project
 ---
 
 Welcome to a novel way of exploring Library of Congress collections. I invite you to find your own questions and connections here, reflecting on what we can learn from Reconstruction about America. Do you have questions, comments, discoveries? Share them on social media with #SituatingUs.

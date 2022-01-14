@@ -1,0 +1,9 @@
+<ul class="subnav">
+  {% for p in site.pages %}
+    {% if p.nav_category == include.nav_category %}
+      <li>
+        <a href="{{ p.url }}" class="page-link{% if p.url==page.url %} active{% endif %}">{{ p.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

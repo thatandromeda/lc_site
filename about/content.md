@@ -3,11 +3,9 @@ layout: page
 title: About the Content
 bodyclass: collections
 navigation_weight: 3
+nav_parent_of: content
 ---
 
-<!-- Some welcoming text. -->
-
-## Overview of the topic
 The intent of this project is to invite you to learn about Reconstruction by providing a novel way to interact with Reconstruction-era Library of Congress content. Do you have questions, comments, discoveries? Share them on social media with #SituatingUs.
 
 ## Data selection

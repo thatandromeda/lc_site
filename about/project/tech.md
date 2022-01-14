@@ -2,6 +2,7 @@
 layout: page
 title: Technology
 bodyclass: project
+nav_category: project
 ---
 
 Core technologies for this project included:

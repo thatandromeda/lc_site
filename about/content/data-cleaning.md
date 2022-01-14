@@ -2,6 +2,7 @@
 layout: page
 title: Data Cleaning
 bodyclass: collections
+nav_category: content
 ---
 
 > "The act of cleaning data is the act of preferentially transforming data so that your chosen analysis algorithm produces interpretable results."

@@ -18,12 +18,19 @@
       </label>
 
       <div class="trigger">
-        {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
-        {% for p in navigation_pages %}
-          {% if p.navigation_weight %}
-            <a href="{{ p.url }}" class="page-link{% if p.url==page.url %} active{% endif %}">{{ p.title }}</a>
-          {% endif %}
-        {% endfor %}
+        <ul>
+          {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+          {% for p in navigation_pages %}
+            {% if p.navigation_weight %}
+              <li>
+                {% if p.nav_parent_of %}
+                  {% include subnav.html nav_category=p.nav_parent_of %}
+                {% endif %}
+                <a href="{{ p.url }}" class="page-link{% if p.url==page.url %} active{% endif %}">{{ p.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
     </nav>
     {%- endif -%}
