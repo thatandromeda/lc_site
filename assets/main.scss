@@ -54,25 +54,25 @@ li {
     position: relative;
     margin-bottom: 0;
 
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-
     &:hover > ul.subnav {
+      opacity: 1;
       display: inherit;
     }
   }
 
   ul.subnav {
-    list-style: none;
-    position: absolute;
+    transition: opacity ease-out .25s;
     display: none;
+    position: absolute;
+    z-index: 1000;
     top: 3rem;
+    left: 0;
+    opacity: 0;
+    list-style: none;
     border-radius: 3px;
-    border: 1px solid $text-color;
     white-space: nowrap;
-    padding: 0.5rem 1rem;
-    background-color: $body-background-color;
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(16, 50, 87, 0.2);
 
     li {
       display: block;
@@ -184,15 +184,19 @@ select {
 
   .page-link,
   a {
+    display: block;
+    padding: .75rem 1rem;
     color: $text-color-muted;
 
     &:hover {
-      text-decoration: 1px solid underline $text-color-muted;
+      background-color: #F6F7FA;
+      text-decoration: none;
     }
 
     &.active {
       color: $text-color;
-      text-decoration: 2px solid underline $text-color;
+      text-decoration: none;
+      background-color: #fff;
     }
   }
 
