@@ -54,7 +54,8 @@ li {
     position: relative;
     margin-bottom: 0;
 
-    &:hover > ul.subnav {
+    &:hover > ul.subnav,
+    &:focus-within > ul.subnav {
       opacity: 1;
       display: inherit;
     }
