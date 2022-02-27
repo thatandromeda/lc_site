@@ -8,6 +8,7 @@ navigation_weight: 4
 <div class="interact-intro">
   <div class="interact-content">
     <p>Below is a visualization of the text-based collections - including newspapers, manuscripts, letters and other original sources - dating from 1865 to 1877 in the Library of Congress.</p>
+    <p>Every dot you see is a document, positioned based on their similarity (according to the neural net). Two dots close to each other share similar content and ones further away share less. The inital colors by date show older dates as cooler colors and later dates as warm colors. And the highlight drop-down recolors the dots so the warmer color dots are more related to the selected subject than the cooler ones.</p>
   </div>
 
   <div class="wrap-help-tips">

@@ -38,7 +38,7 @@
 
       <label>Highlight documents about...
         <select id="colorize">
-          <option value="">No highlighting; color by year (default)</option>
+          <option value="" selected>No highlighting; color by year (default)</option>
           <option value="abolition">abolition</option>
           <option value="agriculture">agriculture</option>
           <option value="business">business</option>
@@ -67,7 +67,7 @@
       window.select = select; // For the click function below.
 
       const wWidth = (window.innerWidth - 50)
-      const wHeight = (window.innerHeight - 200)
+      const wHeight = (window.innerHeight - 300)
 
       let default_color = {
         field: "year",
@@ -75,7 +75,7 @@
         // Make sure the selected scheme has at least 13 options! Otherwise there
         // aren't enough for each year to have its own, and the hover color gets
         // buggy.
-        range: "blues",
+        range: "plasma",
         domain: [1865, 1877]
       }
 
@@ -195,11 +195,11 @@
             'duration': 0.3,
             'encoding': {'color': {
               field: event.target.value,
-              range: "greens",
+              range: "plasma",
               // The real value span is more like [-30, 50], but you get a wider
               // range of colors, hence more meaningful visualization, if you
               // compress the ends. Experimenting with a variety of values
-              // suggests this is a good range.
+              // suggests [0, 15] is a good range.
               domain: [0, 15]
             }}
           })
