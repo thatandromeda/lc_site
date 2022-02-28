@@ -38,7 +38,7 @@
 
       <label>Highlight documents about...
         <select id="colorize">
-          <option value="">No highlighting; color by year (default)</option>
+          <option value="" selected>No highlighting; color by year (default)</option>
           <option value="abolition">abolition</option>
           <option value="agriculture">agriculture</option>
           <option value="business">business</option>
@@ -75,7 +75,7 @@
         // Make sure the selected scheme has at least 13 options! Otherwise there
         // aren't enough for each year to have its own, and the hover color gets
         // buggy.
-        range: "blues",
+        range: "plasma",
         domain: [1865, 1877]
       }
 
@@ -136,9 +136,8 @@
           }
           let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
           let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
-          let date = `<p class="tooltip-date">${reformatDate(datum['date'])}</p>`
+          let date = `<p class="tooltip-date"><strong>Item date:</strong> ${reformatDate(datum['date'])}</p>`
           let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View full item</a>`
-          let description = `<div class="tooltip-description">${datum['description'].slice(2, -2)}</div>`
           let listdata = '';
           const labels = [
             "date", "subjects", "url"
@@ -174,7 +173,7 @@
             let key = Object.keys(subj)[0]
             subjects_html += `<li class="subject-item"><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
           }
-          return `<div class="tooltip-container">${img}<div class="item summary">${title}<div class="tooltip-link">${url}</div>${date}${collections}</div><div class="item metadata">${description}<h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div></div>`;
+          return `<div class="tooltip-container">${img}<div class="item summary">${title}<div class="tooltip-link">${url}</div>${date}${collections}</div><div class="item metadata"><h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div></div>`;
         })
       };
 
@@ -195,11 +194,11 @@
             'duration': 0.3,
             'encoding': {'color': {
               field: event.target.value,
-              range: "greens",
+              range: "plasma",
               // The real value span is more like [-30, 50], but you get a wider
               // range of colors, hence more meaningful visualization, if you
               // compress the ends. Experimenting with a variety of values
-              // suggests this is a good range.
+              // suggests [0, 15] is a good range.
               domain: [0, 15]
             }}
           })

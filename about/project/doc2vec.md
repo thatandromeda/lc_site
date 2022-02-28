@@ -62,9 +62,10 @@ However, it's still up to us, the viewers, to look for things that _might_ be st
 I've tried to experiment with UMAP parameters and dot-coloring options in ways that let you see possible structures. I invite you to investigate what's really there, and talk about it with the hashtag `#SituatingUs`.
 
 ## Notes
-[^1]: While Ng characterizes machine learniing as a science, I think it would be more acccurate to say "science, or possibly art". In practice machine learning is often highly empirical (if you feel charitable) or deeply atheoretical (if you don't); that is, there's a lot of experimenting with system parameters to find an output that gets the job done. This experimentation may be driven more by intuition, experience, or aesthetics than theory.
+[^1]: While Ng characterizes machine learning as a science, I think it would be more acccurate to say "science, or possibly art". In practice machine learning is often highly empirical (if you feel charitable) or deeply atheoretical (if you don't); that is, there's a lot of experimenting with system parameters to find an output that gets the job done. This experimentation may be driven more by intuition, experience, or aesthetics than theory.
 
-[^2]: For a much more thorough — but approachable and hilarious — explanation, see Janelle Shane's [_You Look Like A Thing And I Love You_](https://bookshop.org/books/you-look-like-a-thing-and-i-love-you-how-artificial-intelligence-works-and-why-it-s-making-the-world-a-weirder-place/9780316525244).
+[^2]: For a much more thorough — but approachable and hilarious — explanation, see Janelle Shane's [_You Look Like A Thing And I Love You_](https://bookshop.org/books/you-look-like-a-thing-and-i-love-you-how-artificial-intelligence-works-and-why-it-s-making-the-world-a-weirder-place/9780316525220).
+
 
 [^3]: The equations are somewhat more complicated in practice, but not as much as you might think. `y = mx + b` is a surprisingly good analogy in many cases.
 
