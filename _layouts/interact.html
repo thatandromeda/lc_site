@@ -136,7 +136,7 @@
           }
           let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
           let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
-          let date = `<p class="tooltip-date">${reformatDate(datum['date'])}</p>`
+          let date = `<p class="tooltip-date"><strong>Item date:</strong> ${reformatDate(datum['date'])}</p>`
           let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View full item</a>`
           let description = `<div class="tooltip-description">${datum['description'].slice(2, -2)}</div>`
           let listdata = '';
