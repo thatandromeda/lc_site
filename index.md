@@ -29,7 +29,7 @@ Here’s a short video overview (to come):
 
 The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content.]({% link about/content.md %})
 
-<p><a class="cta-button" href="/interact">Explore the Collections</a></p>
+<p><a class="cta-button" href="/explore">Explore the Collections</a></p>
 
 ## Where should I start?
 You're welcome to dive in anywhere! Zoom and pan with your mouse and use the color-coding options to look for groups with interesting shapes. Then hover or click on the dots to learn more about the documents they represent and look for common themes. Click through to the originals at the Library of Congress to read the full text, which may give you even more insights. I invite you to discover your own meanings in the collection.
