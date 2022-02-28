@@ -10,7 +10,7 @@ navigation_weight: 1
 <div class="hero">
   <h1 class="home-title">Situating Ourselves<br> in Cultural Heritage</h1>
   <div class="snapshot-wrapper">
-    &nbsp;
+    <img src="/assets/images/scatter-snapshot.png" alt="Situating US tool screenshot" />
   </div>
 </div>
 

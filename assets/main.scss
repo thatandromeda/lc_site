@@ -229,12 +229,12 @@ select {
 }
 
 .snapshot-wrapper {
-  height: 300px;
-  width: 500px;
+  width: 460px;
   display: inline-block;
   vertical-align: middle;
 
-  background-color: $text-color-transparent;
+  border: 1px solid $text-color-transparent;
+  padding: 20px;
 }
 
 .video-wrapper {
