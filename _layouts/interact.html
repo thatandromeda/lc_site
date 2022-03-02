@@ -86,7 +86,7 @@
         return (cornersExist && cornersAreNumbers)
       }
 
-      function zoomToSelection() {
+      function zoomToSelection(plot) {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
 
@@ -178,7 +178,7 @@
       };
 
       const plot = new Scatterplot("#deepscatter", wWidth, wHeight)
-      plot.plotAPI(prefs).then(zoomToSelection);
+      plot.plotAPI(prefs).then(zoomToSelection(plot));
       window.plot = plot; // For debugging
 
       const colorSelector = document.querySelector('#colorize');
