@@ -183,25 +183,38 @@
 
       const colorSelector = document.querySelector('#colorize');
 
+      function colorizeDefault() {
+        plot.plotAPI({
+          'duration': 0.3,
+          'encoding': {'color': default_color }
+        })
+      }
+
+      function colorizeSpecial(event) {
+        plot.plotAPI({
+          'duration': 0.3,
+          'encoding': {'color': {
+            field: event.target.value,
+            range: "plasma",
+            // The real value span is more like [-30, 50], but you get a wider
+            // range of colors, hence more meaningful visualization, if you
+            // compress the ends. Experimenting with a variety of values
+            // suggests [0, 15] is a good range.
+            domain: [0, 15]
+          }}
+        })
+      }
+
       colorSelector.addEventListener('change', (event) => {
+        // We're firing the recolor twice because some, but not all, users see
+        // a bug where it only recolors every other time we fire plotAPI.
+        // This is a gross hack because we don't know what the real bug is.
         if (event.target.value == 0) {
-          plot.plotAPI({
-            'duration': 0.3,
-            'encoding': {'color': default_color }
-          })
+          colorizeDefault()
+          colorizeDefault()
         } else {
-          plot.plotAPI({
-            'duration': 0.3,
-            'encoding': {'color': {
-              field: event.target.value,
-              range: "plasma",
-              // The real value span is more like [-30, 50], but you get a wider
-              // range of colors, hence more meaningful visualization, if you
-              // compress the ends. Experimenting with a variety of values
-              // suggests [0, 15] is a good range.
-              domain: [0, 15]
-            }}
-          })
+          colorizeSpecial(event)
+          colorizeSpecial(event)
         }
       });
     </script>
