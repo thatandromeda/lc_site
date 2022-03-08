@@ -109,6 +109,55 @@
         }
       }
 
+      function tooltip_html(datum) {
+        console.log(datum);
+        let image_url = datum["image_url"]
+        let img = ''
+        if (image_url) {
+          img = `<div class="tooltip-image"><a href='${datum["url"]}' target='_blank'><img src="${datum["image_url"]}" alt="photograph of original document"></a></div>`
+        }
+        let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
+        let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
+        let date = `<p class="tooltip-date"><strong>Item date:</strong> ${reformatDate(datum['date'])}</p>`
+        let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View full item</a>`
+        let listdata = '';
+        const labels = [
+          "date", "subjects", "url"
+        ]
+        // What's up with this weird replacement?
+        // When quadfeather writes tiles, it uses single quotes to enclose
+        // key/value pairs, even if the original csv used double quotes. This
+        // makes them invalid JSON. (There's an exception, which is if the key
+        // or value included an apostrophe. In this case quadfeather uses double
+        // quotes to preserve the parse.)
+        // We can't just do a global search/replace to turn ' into ", since some
+        // ' characters are apostrophes and not delimiters.
+        // Therefore, we:
+        // 1) Find everything which is an apostrophe (that is, a ' surrounded by
+        //    letters) and replace it with a placeholder, so it isn't caught up
+        //    in step 2;
+        // 2) Replace all remaining single quotes with double quotes;
+        // 3) Switch the placeholder back to an apostrophe;
+        const reg = /([a-zA-Z]+)'([a-zA-Z]+)/g
+        let subjects = ''
+        try {
+          subjects = JSON.parse(
+            datum['subjects'].replaceAll(reg, "$1!!!!!$2")
+              .replaceAll("'", '"')
+              .replaceAll("!!!!!", "'")
+          )
+        } catch (e) {
+          subjects = []
+        }
+        let subjects_html = ''
+        for (const subj of subjects) {
+          // Why is subj an Object and not a dict? Dunno.
+          let key = Object.keys(subj)[0]
+          subjects_html += `<li class="subject-item"><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
+        }
+        return `<div class="tooltip-container">${img}<div class="item summary">${title}<div class="tooltip-link">${url}</div>${date}${collections}</div><div class="item metadata"><h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div></div>`;
+      }
+
       const prefs = {
         "source_url": "{{ site.feather_files }}",
         "max_points": 25000, // Quadfeather tile_size == 25000; trying more for exploratory purposes.
@@ -128,57 +177,11 @@
           }
         },
         "click_function": "let title = `<h3 class='tooltip-title'>${datum['title']}</h3>`; select('.tooltip').html(title)",
-        "tooltip_html": (function (datum) {
-          let image_url = datum["image_url"]
-          let img = ''
-          if (image_url) {
-            img = `<div class="tooltip-image"><a href='${datum["url"]}' target='_blank'><img src="${datum["image_url"]}" alt="photograph of original document"></a></div>`
-          }
-          let collections = `<h4 class="tooltip-section-title">Collection</h4><p><span class="tooltip-collection">${datum["collections"].slice(2, -2)}</span></p>`
-          let title = `<h3 class="tooltip-title">${datum["title"]}</h3>`
-          let date = `<p class="tooltip-date"><strong>Item date:</strong> ${reformatDate(datum['date'])}</p>`
-          let url = `<a class='cta-button' href='${datum["url"]}' target='_blank'>View full item</a>`
-          let listdata = '';
-          const labels = [
-            "date", "subjects", "url"
-          ]
-          // What's up with this weird replacement?
-          // When quadfeather writes tiles, it uses single quotes to enclose
-          // key/value pairs, even if the original csv used double quotes. This
-          // makes them invalid JSON. (There's an exception, which is if the key
-          // or value included an apostrophe. In this case quadfeather uses double
-          // quotes to preserve the parse.)
-          // We can't just do a global search/replace to turn ' into ", since some
-          // ' characters are apostrophes and not delimiters.
-          // Therefore, we:
-          // 1) Find everything which is an apostrophe (that is, a ' surrounded by
-          //    letters) and replace it with a placeholder, so it isn't caught up
-          //    in step 2;
-          // 2) Replace all remaining single quotes with double quotes;
-          // 3) Switch the placeholder back to an apostrophe;
-          const reg = /([a-zA-Z]+)'([a-zA-Z]+)/g
-          let subjects = ''
-          try {
-            subjects = JSON.parse(
-              datum['subjects'].replaceAll(reg, "$1!!!!!$2")
-                .replaceAll("'", '"')
-                .replaceAll("!!!!!", "'")
-            )
-          } catch (e) {
-            subjects = []
-          }
-          let subjects_html = ''
-          for (const subj of subjects) {
-            // Why is subj an Object and not a dict? Dunno.
-            let key = Object.keys(subj)[0]
-            subjects_html += `<li class="subject-item"><a href="${subj[key].replaceAll('&fo=json', '').replaceAll('fo=json', '')}">${key}</a></li>`
-          }
-          return `<div class="tooltip-container">${img}<div class="item summary">${title}<div class="tooltip-link">${url}</div>${date}${collections}</div><div class="item metadata"><h4 class="tooltip-section-title">Subjects</h4><ul class="tooltip-subjects">${subjects_html}</ul></div></div>`;
-        })
       };
 
       const plot = new Scatterplot("#deepscatter", wWidth, wHeight)
       plot.plotAPI(prefs).then(zoomToSelection(plot));
+      plot.tooltip_html = tooltip_html;
       window.plot = plot; // For debugging
 
       const colorSelector = document.querySelector('#colorize');
@@ -206,14 +209,9 @@
       }
 
       colorSelector.addEventListener('change', (event) => {
-        // We're firing the recolor twice because some, but not all, users see
-        // a bug where it only recolors every other time we fire plotAPI.
-        // This is a gross hack because we don't know what the real bug is.
         if (event.target.value == 0) {
           colorizeDefault()
-          colorizeDefault()
         } else {
-          colorizeSpecial(event)
           colorizeSpecial(event)
         }
       });
