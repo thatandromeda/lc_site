@@ -1,0 +1,23 @@
+<head>
+  <!--
+    minima 2.5.1 doesn't have custom-head.html, so this copy-pastes its
+    head.html, edits the stylesheet link (which is weirdly otherwise broken),
+    and adds our custom code.
+  -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThatAndromeda" />
+  <meta name="twitter:title" content="Situating Ourselves in Cultural Heritage" />
+  <meta name="twitter:description" content="Explore Library of Congress materials on Reconstruction. situating.us uses machine learning to help you (re)discover the story of America." />
+  <meta name="twitter:image" content="https://situating.us/assets/images/scatter-snapshot.png" />
+  <!-- end Twitter card -->
+</head>
