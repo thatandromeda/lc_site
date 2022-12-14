@@ -24,7 +24,7 @@ As you begin an exploration of the collections, items will scatter across the sc
 Here’s a short video overview (to come):
 
 <div class="video-wrapper">
-  &nbsp;
+<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/jMr9v0t1jNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content.]({% link about/content.md %})
