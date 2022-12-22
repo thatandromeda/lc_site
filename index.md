@@ -9,7 +9,7 @@ navigation_weight: 1
 
 <div class="hero">
   <h1 class="home-title">Situating Ourselves<br> in Cultural Heritage</h1>
-  <div class="snapshot-wrapper">
+  <div class="snapshot-wrapper framed">
     <img src="/assets/images/scatter-snapshot.png" alt="Situating US tool screenshot" />
   </div>
 </div>
@@ -23,8 +23,8 @@ As you begin an exploration of the collections, items will scatter across the sc
 
 Here’s a short video overview:
 
-<div class="video-wrapper">
-<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/jMr9v0t1jNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-wrapper framed">
+<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/jMr9v0t1jNM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 </div>
 
 The collections included focus on the post-Civil War era of Reconstruction in the United States, and may include challenging material. [Read more about the content.]({% link about/content.md %})
@@ -42,7 +42,68 @@ Not sure where to start? How about:
 [TKTKTK can't find a good thing with Black newspapers]
 the "abolition" spike at 4oclock? -->
 
-[Try it out!]({% link explore.md %})
+Or you can follow along in these videos: 
+
+<div class="example-videos-wrapper">
+  <a class="framed" data-micromodal-trigger="modal-1" href='javascript:;'>
+    <img src="/assets/images/suffrage-example.jpeg" />
+    <span>Watch a video example exploring Women's Suffrage</span>
+  </a>
+  <a class="framed" data-micromodal-trigger="modal-3" href='javascript:;'>
+    <img src="/assets/images/classifieds-example.jpeg" />
+    <span>Watch a video example exploring Classified Ads</span>
+  </a>
+  <a class="framed" data-micromodal-trigger="modal-2" href='javascript:;'>
+    <img src="/assets/images/troops-example.jpeg" />
+    <span>Watch a video example exploring Civil War Troops</span>
+  </a>
+</div>
+
+<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-1-title">Exploring by Topic: Women's Suffrage</h2>        
+        <button id="closeModal1" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+      </header>
+      <main class="modal__content" id="modal-1-content">
+        <iframe id="videoSuffrage" width="640" height="390" src="https://www.youtube.com/embed/xf9dMw850jo?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </main>
+    </div>
+  </div>
+</div>
+
+<div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-2-title">Exploring by Cluster: Civil War Troops</h2>        
+        <button id="closeModal2" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+      </header>
+      <main class="modal__content" id="modal-2-content">
+        <iframe id="videoTroops" width="640" height="390" src="https://www.youtube.com/embed/XOESkI0QIIY?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </main>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal micromodal-slide" id="modal-3" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-3-title">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-3-title">Exploring by Cluster: Classified Ads</h2>        
+        <button id="closeModal3" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+      </header>
+      <main class="modal__content" id="modal-3-content">
+        <iframe id="videoAds" width="640" height="390" src="https://www.youtube.com/embed/-X5dwSCctQE?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </main>
+    </div>
+  </div>
+</div>
+
+
+<p><a class="cta-button" href="/explore">Try It Out Yourself!</a></p>
 
 Find something interesting? Share it on social media with #SituatingUs.
 

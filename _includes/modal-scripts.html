@@ -1,0 +1,44 @@
+<script src="/assets/micromodal.min.js"></script>
+ <script>
+    var player1;
+    var player2;
+    var player3;
+
+    // set the players we want to load in modals
+    function onYouTubePlayerAPIReady() {
+      player1 = new YT.Player("videoSuffrage",
+      {
+        events: {
+          onReady: onPlayerReady
+        }
+      });
+      player2 = new YT.Player("videoTroops",
+      {
+        events: {
+          onReady: onPlayerReady
+        }
+      });
+      player3 = new YT.Player("videoAds",
+      {
+        events: {
+          onReady: onPlayerReady
+        }
+      });
+    }
+
+    // player is ready to use
+    function onPlayerReady(event) {
+    }
+
+    // Inject YouTube API script to access the player pause function
+    var tag = document.createElement("script");
+    tag.src = "//www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // initialize the modals with the additional close events
+    MicroModal.init({
+      onClose: modal => { player1.pauseVideo(), player2.pauseVideo(), player3.pauseVideo() }
+    });
+
+  </script>
