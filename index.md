@@ -67,7 +67,7 @@ Or you can follow along in these videos:
         <button id="closeModal1" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
       </header>
       <main class="modal__content" id="modal-1-content">
-        <iframe id="videoSuffrage" width="640" height="390" src="https://www.youtube.com/embed/xf9dMw850jo?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoSuffrage" width="640" height="390" src="https://www.youtube.com/embed/bvubXvs7wo4?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
       </main>
     </div>
   </div>
@@ -81,7 +81,7 @@ Or you can follow along in these videos:
         <button id="closeModal2" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
       </header>
       <main class="modal__content" id="modal-2-content">
-        <iframe id="videoTroops" width="640" height="390" src="https://www.youtube.com/embed/XOESkI0QIIY?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoTroops" width="640" height="390" src="https://www.youtube.com/embed/tD8h5kIwe8E?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
       </main>
     </div>
   </div>
@@ -96,7 +96,7 @@ Or you can follow along in these videos:
         <button id="closeModal3" class="modal__close" aria-label="Close modal" data-micromodal-close></button>
       </header>
       <main class="modal__content" id="modal-3-content">
-        <iframe id="videoAds" width="640" height="390" src="https://www.youtube.com/embed/-X5dwSCctQE?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoAds" width="640" height="390" src="https://www.youtube.com/embed/DjGoYNyxKFo?enablejsapi=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
       </main>
     </div>
   </div>
